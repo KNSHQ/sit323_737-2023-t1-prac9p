@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mongo-pv
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteMany
+  local:
+    path: /Users/kanishk/Library/CloudStorage/OneDrive-DeakinUniversity/Deakin/3.\ T1,\ 2023/SIT737\ -\ Cloud\ Native\ Application\ Development/Tasks/13.\ Task\ 9.1P/Resources/sit323_737-2023-t1-prac9p
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+        - matchExpressions:
+            - key: kubernetes.io/hostname
+              operator: In
+              values:
+                - docker-desktop
